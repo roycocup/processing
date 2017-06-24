@@ -14,8 +14,8 @@ class Player{
 	public int assists;
 	public int goals;
 	public int saves;
-  public final String name;
-	public final String teamName;
+  public String name;
+	public String teamName;
 	public int marketValue;
 
 
