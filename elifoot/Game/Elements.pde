@@ -17,7 +17,7 @@ class Player{
   public void draw(){
     fill(255);
     ellipse(pos.x, pos.y, size, size);
-    println(pos);
+    //println(pos);
   };
 
   public void update(){
@@ -32,7 +32,7 @@ class Player{
   }
 
   PVector vecToBall(){
-    return ball.pos.sub(pos).normalize();
+    return pos.sub(ball.pos).normalize().mult(-1);
   }
 
 }

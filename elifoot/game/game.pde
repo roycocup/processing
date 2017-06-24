@@ -18,6 +18,12 @@ void draw(){
   drawAll();
 }
 
+void keyPressed() {
+  if (key == 'm' || key == 'M'){
+    ball.toggleFollowMouse();
+  }
+}
+
 
 // OWN METHODS
 void drawAll(){
@@ -54,6 +60,8 @@ class Pitch{
 }
 
 class Ball {
+  boolean _followMouse;
+
   public int radius;
   public PVector pos;
   public float size;
@@ -62,12 +70,26 @@ class Ball {
     size = 10;
     pos = new PVector(width / 2, height / 2);
   }
-  void update(){}
+  void update(){
+    if (_followMouse){
+      pos = new PVector(mouseX, mouseY);
+    }
+  }
+
   void draw(){
     noStroke();
     fill(255);
     ellipse(pos.x,pos.y, size, size);
   }
+
+  public void toggleFollowMouse(){
+    if (_followMouse){
+      _followMouse = false;
+    } else {
+      _followMouse = true;
+    }
+  }
+
 }
 
 class Score{
