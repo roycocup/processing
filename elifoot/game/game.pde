@@ -10,6 +10,7 @@ void setup(){
   ball = new Ball();
   team = new Team();
   pitch = new Pitch();
+  println(player);
 }
 
 void draw(){
