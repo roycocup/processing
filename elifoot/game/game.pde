@@ -54,25 +54,35 @@ void debugRegion(){
   float w = (innerBoundaries.get("w") * _screenPercent);
   float h = (innerBoundaries.get("h") * _screenPercent);
   noFill();
-  stroke(255, 0, 0);
-  rect(x,y,w,h);
+  // stroke(255, 0, 0);
+  // rect(x,y,w,h);
   regions.put("lb", new RectValues(x,y,w,h));
 
   float x2 = x + w;
-  float y2 = y;
-  float w2 = w;
-  float h2 = h;
-  stroke(0,255,0);
-  rect(x2,y2,w2,h2);
-  regions.put("lc", new RectValues(x2,y2,w2,h2));
+  // stroke(0,255,0);
+  // rect(x2,y,w,h);
+  regions.put("lc", new RectValues(x2,y,w,h));
 
-  float x3 = x2 + w2;
-  float y3 = y;
-  float w3 = w;
-  float h3 = h;
-  stroke(0,0,255);
-  rect(x3,y3,w3,h3);
-  regions.put("lf", new RectValues(x3,y3,w3,h3));
+  float x3 = x2 + w;
+  // stroke(0,0,255);
+  // rect(x3,y,w,h);
+  regions.put("lf", new RectValues(x3,y,w,h));
+
+  float y2 = y + h;
+  // stroke(255,0,0);
+  // rect(x,y2,w,h);
+  regions.put("cb", new RectValues(x,y2,w,h));
+
+  float y3 = y2 + h;
+  // stroke(0,255,0);
+  // rect(x,y3,w,h);
+  regions.put("rb", new RectValues(x,y3,w,h));
+
+  regions.put("cm", new RectValues(x2,y2,w,h));
+
+  regions.put("rm", new RectValues(x2,y3,w,h));
+
+  regions.put("rf", new RectValues(x3,y3,w,h));
 }
 
 
