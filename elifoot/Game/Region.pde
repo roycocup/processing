@@ -39,24 +39,21 @@ class Region{
     regions.put("rb", new AreaValues(x,y3,w,h));
     regions.put("rm", new AreaValues(x2,y3,w,h));
     regions.put("rf", new AreaValues(x3,y3,w,h));
-    
+
   }
 }
 
 class AreaValues {
-  public float x;
-  public float y;
-  public float w;
-  public float h;
-  public float x2;
-  public float y2;
+  public float x, y, w, h, x2, y2, centerX, centerY;
 
   public AreaValues(float x,float y,float w,float h){
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
-    this.x2 = x + w;
-    this.y2 = y + h;
+    x2 = x + w;
+    y2 = y + h;
+    centerX = (x + x2)/2;
+    centerY = (y + y2)/2;
   }
 }
