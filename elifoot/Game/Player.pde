@@ -1,12 +1,13 @@
 class Player{
   DNA _dna;
   int size = 15;
+  String[] positions = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
+
   public PVector acc;
   public PVector vel;
   public PVector pos;
   public int teeNumber;
   public Duty duty;
-  public Region region;
   public int goalsConceded;
 	public int yellowCards;
 	public int redCards;
@@ -24,9 +25,10 @@ class Player{
     acc = new PVector();
     vel = new PVector();
     pos = new PVector();
+
     teeNumber = (int) random(1,33);
-    duty = new Duty("lb");
-    region = duty.region;
+    duty = new Duty("cf");
+
   }
 
 
