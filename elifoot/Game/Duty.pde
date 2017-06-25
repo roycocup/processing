@@ -1,9 +1,8 @@
 class Duty{
-  public String[] duties = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
   public Region region;
-  public String selectedDuty;
+  public Position selectedDuty;
 
-  public Duty(String duty){
+  public Duty(Position duty){
     selectedDuty = duty;
     region = new Region(selectedDuty);
   }

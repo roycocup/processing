@@ -12,7 +12,7 @@ void setup(){
   size(800, 600);
   frameRate(30);
   pitch = new Pitch();
-  player = new Player(new PVector(100, 100));
+  player = new Player(new PVector(100, 100), Position.CB);
   team = new Team();
   ball = new Ball();
 }

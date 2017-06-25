@@ -20,7 +20,7 @@ class DNA{
   }
 
   public float getSpeed(){
-    return speed * 100f;
+    return speed * speedsoft;
   }
 
   void update(){}

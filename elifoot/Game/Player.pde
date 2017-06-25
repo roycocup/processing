@@ -9,14 +9,14 @@ class Player{
   public float marketValue;
 
   int size = 15;
-  String[] positions = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
+
   DNA dna;
   Decision decision;
   Duty duty;
   AreaValues region;
 
 
-  public Player(PVector setpos){
+  public Player(PVector setpos, Position position){
     dna = new DNA();
     acc = new PVector();
     vel = new PVector();
@@ -24,13 +24,10 @@ class Player{
     pos = setpos;
 
     number = (int) random(1,33);
-    duty = new Duty("cf");
+    duty = new Duty(position);
     region = duty.region.enabled;
   }
 
-  public Player(){
-    this(new PVector(0,0));
-  }
 
   public void update(){
     act();
@@ -64,9 +61,8 @@ class Player{
 
   void movePlayerTo(PVector to){
     float dist = distTo(pos, to).mag();
-    float distCovered = dna.speed * speedsoft;
+    float distCovered = dna.getSpeed();
     float amt = abs(distCovered / dist);
-    println(amt);
     if(dist > 1){
         pos.lerp(to, amt);
     }
