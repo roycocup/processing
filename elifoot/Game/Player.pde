@@ -38,11 +38,23 @@ class Player{
   };
 
   public void update(){
+    behave();
+  };
+
+  void behave(){
+    // divide the region in 9 parts
+    // depending on moment of the game (attacking, defending)
+    // go to center of region part
+    // if ball is in region go get it
+    // if teammate is closer to ball
+  }
+
+  void chaseBall(){
     applyForce(vecToBall());
     vel.add(acc);
     pos.add(vel);
     acc.mult(0);
-  };
+  }
 
   void applyForce(PVector force){
     acc.add(force);

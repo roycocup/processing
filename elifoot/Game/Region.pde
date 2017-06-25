@@ -11,7 +11,9 @@ class Region{
   }
 
   // lb is the name of region 1 and region 9 depending on which side the player is playing from
-  // A region should have a name, calculated boundaries and a mirror side boundaries
+  // A region should have a name, calculated boundaries, mirror side boundaries,
+  // sub regions (region / 9)
+  // mirror sub regions
   void createRegions(){
     IntDict innerBoundaries = pitch.boundaries;
     float _screenPercent = 0.333333;
