@@ -1,32 +1,34 @@
 class Player{
-  DNA _dna;
-  int size = 15;
-  String[] positions = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
-
   public PVector acc;
   public PVector vel;
   public PVector pos;
-  public int teeNumber;
+  public int number;
   public Duty duty;
-  public int goalsConceded;
-	public int yellowCards;
-	public int redCards;
-	public int minutes;
-	public int assists;
-	public int goals;
-	public int saves;
+	public Team team;
   public String name;
-	public String teamName;
-	public int marketValue;
 
+  int size = 15;
+  String[] positions = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
+  DNA _dna;
+  Decision _decision;
 
+  // public int goalsConceded;
+	// public int yellowCards;
+	// public int redCards;
+	// public int minutes;
+	// public int assists;
+	// public int goals;
+	// public int saves;
+  // public int marketValue;
+
+  
   public Player(){
     _dna = new DNA();
     acc = new PVector();
     vel = new PVector();
     pos = new PVector();
 
-    teeNumber = (int) random(1,33);
+    number = (int) random(1,33);
     duty = new Duty("cf");
 
   }
@@ -38,11 +40,15 @@ class Player{
   };
 
   public void update(){
-    behave();
+    act();
   };
 
-  void behave(){
-    // divide the region in 9 parts
+  // TODO:
+  // decisions: run with ball, pass, run back, shoot on target,
+
+
+  void act(){
+    // make a decision every
     // depending on moment of the game (attacking, defending)
     // go to center of region part
     // if ball is in region go get it

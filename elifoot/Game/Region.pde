@@ -1,3 +1,5 @@
+// TODO: divide the region in 9 parts
+
 class Region{
 
   HashMap<String, AreaValues> regions;
