@@ -1,4 +1,6 @@
-float deltaTime = 0;
+
+public float deltaTime = 0;
+public float speedsoft = 0.12;
 
 Player player;
 Ball ball;
@@ -21,7 +23,7 @@ void draw(){
   updateAll();
   drawAll();
   float end = millis();
-  deltaTime = (end - start) * 0.001f;
+  deltaTime = (end - start) * 0.001;
 }
 
 void keyPressed() {

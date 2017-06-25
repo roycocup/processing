@@ -64,10 +64,11 @@ class Player{
 
   void movePlayerTo(PVector to){
     float dist = distTo(pos, to).mag();
-    float distCovered = dna.getSpeed() * deltaTime;
+    float distCovered = dna.speed * speedsoft;
     float amt = abs(distCovered / dist);
+    println(amt);
     if(dist > 1){
-        pos.lerp(to, clamp(amt, 1));
+        pos.lerp(to, amt);
     }
   }
 
