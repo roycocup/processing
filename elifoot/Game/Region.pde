@@ -1,61 +1,50 @@
 class Region{
 
-
+  HashMap<String, RectValues> regions;
   float _screenPercent = 0.33;
-  String[] _regionsNames = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
-  public Region(String selectedRegion){
+  public String[] names = {"lb","cb","rb","lm","cm","rm","lf","cf","rf"};
 
-    //createBoundaries();
-    //createRegions();
+  public Region(String selectedRegion){
+    createRegions();
   }
 
   // lb is the name of region 1 and region 9 depending on which side the player is playing from
   // A region should have a name, calculated boundaries and a mirror side boundaries
   void createRegions(){
-
-  }
-
-
-  void createBoundaries(){
     IntDict innerBoundaries = pitch.boundaries;
-    IntDict boundaries = new IntDict();
-    IntDict mirrorBoundaries = new IntDict();
+    float _screenPercent = 0.333333;
+    regions = new HashMap<String, RectValues>();
 
-    // left back
-    boundaries.set("x", 0);
-    boundaries.set("y", 0);
-    int w = (int) (innerBoundaries.get("w") * _screenPercent);
-    int h = (int) (innerBoundaries.get("h") * _screenPercent);
-    boundaries.set("w", w);
-    boundaries.set("h", h);
+    float x = innerBoundaries.get("x");
+    float y = innerBoundaries.get("y");
+    float w = (innerBoundaries.get("w") * _screenPercent);
+    float h = (innerBoundaries.get("h") * _screenPercent);
+    float x2 = x + w;
+    float x3 = x2 + w;
+    float y2 = y + h;
+    float y3 = y2 + h;
 
-    // right forward - mirror left back
-    boundaries.set("x", 2*w);
-    boundaries.set("y", 2*h);
-    boundaries.set("w", 3*w);
-    boundaries.set("h", 3*h);
-
-    //switch(selectedRegion){
-    //  case "lb":
-    //    break;
-    //  case "cb":
-    //    break;
-    //  case "rb":
-    //    break;
-    //  case "lm":
-    //    break;
-    //  case "cm":
-    //    break;
-    //  case "rm":
-    //    break;
-    //  case "lf":
-    //    break;
-    //  case "cf":
-    //    break;
-    //  case "rf":
-    //    break;
-    //}
+    regions.put("lb", new RectValues(x,y,w,h));
+    regions.put("lc", new RectValues(x2,y,w,h));
+    regions.put("lf", new RectValues(x3,y,w,h));
+    regions.put("cb", new RectValues(x,y2,w,h));
+    regions.put("rb", new RectValues(x,y3,w,h));
+    regions.put("cm", new RectValues(x2,y2,w,h));
+    regions.put("rm", new RectValues(x2,y3,w,h));
+    regions.put("rf", new RectValues(x3,y3,w,h));
   }
+}
 
+class RectValues {
+  public float x;
+  public float y;
+  public float w;
+  public float h;
 
+  public RectValues(float x,float y,float w,float h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+  }
 }
