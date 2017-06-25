@@ -39,6 +39,7 @@ class Region{
     regions.put("rb", new AreaValues(x,y3,w,h));
     regions.put("rm", new AreaValues(x2,y3,w,h));
     regions.put("rf", new AreaValues(x3,y3,w,h));
+    
   }
 }
 
