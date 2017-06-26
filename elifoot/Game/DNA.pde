@@ -4,8 +4,9 @@ class DNA{
   public float dribbling, passing, shooting, tackling;
   public float selfishness, antecipation;
   public float goalkeeping, morale;
+
   public DNA(){
-    speed = random(4,20);
+    speed = random(18,20);
     stamina = random(5, 20);
     strength = random(4, 20);
     dribbling = random(3,20);
@@ -17,6 +18,11 @@ class DNA{
     goalkeeping = random(5,10);
     morale = random(5,20);
   }
+
+  public float getSpeed(){
+    return speed * speedsoft;
+  }
+
   void update(){}
   void draw(){}
 }
