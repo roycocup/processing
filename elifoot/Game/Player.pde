@@ -3,7 +3,7 @@ class Player{
   public PVector vel;
   public PVector pos;
   public int number;
-	public Team team;
+  public Team team;
   public String name;
   public int goalsConceded, yellowCards, redCards, minutes, assists, goals, saves;
   public float marketValue;
@@ -23,7 +23,7 @@ class Player{
     pos = new PVector();
     pos = setpos;
 
-    number = (int) random(1,33);
+    number = getNumber();
     duty = new Duty(position);
     region = duty.region.enabled;
   }
@@ -36,6 +36,9 @@ class Player{
   public void draw(){
     fill(255);
     ellipse(pos.x, pos.y, size, size);
+    fill(0);
+    textFont(createFont("Arial Black", 9));
+    text(number, pos.x-5, pos.y+3);
   };
 
 
@@ -92,6 +95,10 @@ class Player{
 
   PVector vecToBall(){
     return pos.sub(ball.pos).normalize().mult(-1);
+  }
+
+  int getNumber(){
+      return (int) random(1,33);
   }
 
 }

@@ -2,9 +2,8 @@
 public float deltaTime = 0;
 public float speedsoft = 0.12;
 
-Player player;
 Ball ball;
-Team team;
+Team team1;
 Pitch pitch;
 
 // MAIN METHODS
@@ -12,8 +11,7 @@ void setup(){
   size(800, 600);
   frameRate(30);
   pitch = new Pitch();
-  player = new Player(new PVector(100, 100), Position.CB);
-  team = new Team();
+  team1 = new Team();
   ball = new Ball();
 }
 
@@ -37,13 +35,11 @@ void keyPressed() {
 void drawAll(){
   pitch.draw();
   ball.draw();
-  team.draw();
-  player.draw();
+  team1.draw();
 }
 
 void updateAll(){
   pitch.update();
   ball.update();
-  team.update();
-  player.update();
+  team1.update();
 }
